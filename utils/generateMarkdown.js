@@ -33,9 +33,10 @@ const renderLicenseSection = license => {
 function generateMarkdown(data) {
   return `
 
-${data.title}
+# ${data.title}
 
-![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/${data.github}/${data.repo}?style=flat&logo=appveyor) ![Badge for GitHub repo size](https://img.shields.io/github/repo-size/${data.github}/${data.repo}?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/${data.github}/${data.repo}?style=flat&logo=appveyor)   
+![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/${data.github}/${data.repo}?style=flat&logo=appveyor) ![Badge for GitHub repo size](https://img.shields.io/github/repo-size/${data.github}/${data.repo}?style=flat&logo=appveyor)
+
 Check out the badges hosted by [shields.io](https://shields.io/).
 
 ## Description:
@@ -47,15 +48,13 @@ ${data.description}
 * [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
-* [Test](#test)
+* [Tests](#tests)
 * [Questions](#questions)
 
 ## Installation:
-
 ${data.installation}
 
 ## Usage:
-
 ${data.usage}
 
 ## License:

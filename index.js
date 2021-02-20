@@ -104,7 +104,7 @@ const questions = [
 	{
 		type: 'input',
 		name: 'test',
-		message: 'Provide any tests written for your application and provide examples on how to run them.',
+		message: 'Provide any tests written for your application and provide examples on how to run them',
 	},
 
 ];
