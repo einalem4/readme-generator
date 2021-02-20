@@ -23,6 +23,8 @@ Then invoke the application with `node index.js`
 ## Usage:
 ![readme gif](assets/readme.gif)
 
+[Link to demo](https://drive.google.com/file/d/1IGjDxhZRB691EL9jadxa-sfUIfiqWzzq/view)
+
 ## License:
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
