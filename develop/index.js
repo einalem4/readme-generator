@@ -1,8 +1,8 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
+// array of questions for user input
 const questions = [
 
 	{
@@ -19,6 +19,12 @@ const questions = [
 		}
 	},
 
+	{
+		type: 'input',
+		name: 'email',
+		message: 'What email address should people reach out to if they have questions?',
+	},
+	
 	{
 		type: 'input',
 		name: 'repo',
@@ -62,6 +68,22 @@ const questions = [
 	},
 
 	{
+		type: 'input',
+		name: 'license',
+		message: 'Chose the appropriate license for this project: ',
+		choices: [
+			'GNU AGPLv3',
+			'GNU GPLv3',
+			'GNU LGPLv3',
+			'Mozilla Public License 2.0',
+			'Apache License 2.0',
+			'MIT License',
+			'Boost Software License 1.0',
+			'The Unlicense',
+		]
+	},
+
+	{
 		type: "input",
 		name: "badge",
 		message: "Enter the badge links that you would like included."
@@ -81,22 +103,6 @@ const questions = [
 
 	{
 		type: 'input',
-		name: 'license',
-		message: 'Chose the appropriate license for this project: ',
-		choices: [
-			'GNU AGPLv3',
-			'GNU GPLv3',
-			'GNU LGPLv3',
-			'Mozilla Public License 2.0',
-			'Apache License 2.0',
-			'MIT License',
-			'Boost Software License 1.0',
-			'The Unlicense',
-		]
-	},
-
-	{
-		type: 'input',
 		name: 'contributing',
 		message: 'Who are the contributors of this projects?',
 	},
@@ -109,7 +115,7 @@ const questions = [
 
 ];
 
-// TODO: Create a function to write README file
+//function to write README file
 function writeToFile(fileName, data) {
 	return new Promise((resolve, reject) => {
 		fs.writeFile(fileName, data, err => {
@@ -128,10 +134,15 @@ function writeToFile(fileName, data) {
 	});
 
 }
-writeToFile(fileName,data);
+writeToFile(fileName, data);
 
-// TODO: Create a function to initialize app
-function init() { }
+//function to initialize app
+function init() {
+	inquirer.prompt(questions).then(answers => {
+		writeToFile("README.md", generateMarkdown(answers));
+
+	});
+}
 
 // Function call to initialize app
 init();
