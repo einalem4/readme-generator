@@ -24,7 +24,7 @@ const questions = [
 		name: 'email',
 		message: 'What email address should people reach out to if they have questions?',
 	},
-	
+
 	{
 		type: 'input',
 		name: 'repo',
@@ -68,7 +68,7 @@ const questions = [
 	},
 
 	{
-		type: 'input',
+		type: 'list',
 		name: 'license',
 		message: 'Chose the appropriate license for this project: ',
 		choices: [
@@ -81,12 +81,6 @@ const questions = [
 			'Boost Software License 1.0',
 			'The Unlicense',
 		]
-	},
-
-	{
-		type: "input",
-		name: "badge",
-		message: "Enter the badge links that you would like included."
 	},
 
 	{
@@ -134,12 +128,11 @@ function writeToFile(fileName, data) {
 	});
 
 }
-writeToFile(fileName, data);
 
 //function to initialize app
 function init() {
 	inquirer.prompt(questions).then(answers => {
-		writeToFile("README.md", generateMarkdown(answers));
+		writeToFile('./dist/README.md', generateMarkdown(answers));
 
 	});
 }
